@@ -5,7 +5,7 @@ Script para ejecutar maquinas virtuales con Qemu-KVM.
 
 Recuerda volverlo ejecutable con `chmod+x qmulite`
 
-[Descargar](https://github.com/d33vliter/qmulite/releases)
+[Descargar](https://github.com/d33vliter/qmulite/archive/master.zip)
 
 
 **Captura:**
