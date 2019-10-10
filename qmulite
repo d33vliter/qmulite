@@ -1,0 +1,71 @@
+#!/bin/bash
+#hecho por d33vliter
+
+##pedira contraseña para poder instalar las dependencias ademas de agregar su usuario a kvm en caso no lo tenga.
+
+sudo apt-get install qemu-kvm qemu virtinst figlet zenity
+sudo adduser $USER kvm
+#########################################################
+while :
+do
+clear
+figlet "QmuLite"
+echo "1. Crear maquina virtual"
+echo "2. Instalar sistema en maquina virtual"
+echo "3. Ejecutar Maquina virtual."
+echo "4. Ejecutar solo Live iso"
+echo "5.salir"
+echo
+echo "Elige una opcion: "
+read opcion
+case $opcion in
+
+1)clear && echo "Escribe nombre que le dara a la maquina virtual: "
+read image
+echo
+echo "Seleccione la ubicacion donde se alojara la maquina virtual: "
+ubi=$(zenity --title "Selecciona Ubicacion" --file-selection --directory)
+echo
+echo "Escribe el tamaño que le asignara a la maquina virtual(ej: 8G): "
+read gb
+qemu-img create -f qcow2 $ubi/$image.img $gb && clear && clear &&echo "Maquina virtual creada con exito!" && sleep 1s;;
+
+2)clear && echo "Escribe cantidad de ram que agregaras en mb(ej: 1024): "
+read ram
+echo
+echo "Cantidad de nucleos a usar(ej: 1): "
+read nucleo
+echo
+echo "Elige maquina virtual a usar: "
+duro=$(zenity --title "Selecciona una maquina virtual" --file-selection)
+echo
+echo "Elige iso a instalar: "
+cdrom=$(zenity --title "Selecciona una iso" --file-selection)
+kvm -m $ram -boot d -smp $nucleo -net nic -net user -soundhw hda -vga std -hda $duro -cdrom $cdrom && clear;;
+
+3)clear && echo "escribe cantidad de ram que agregaras en mb(ej: 1024): "
+read ram
+echo
+echo "cantidad de nucleos a usar(ej: 1): "
+read nucleo
+echo
+echo "Elige disco virtual a usar(discoduro): "
+duro=$(zenity --title "Selecciona una Maquina Virtual" --file-selection)
+kvm -m $ram -boot d -smp $nucleo -net nic -net user -soundhw hda -vga std -hda $duro && clear;;
+
+4)clear && echo "Escribe cantidad de ram que agregaras en mb(ej: 1024): "
+read ram
+echo
+echo "Cantidad de nucleos a usar(ej: 1): "
+read nucleo
+echo
+echo "Elige iso a ejecutar: "
+cdrom=$(zenity --title "Selecciona una iso" --file-selection)
+
+kvm -m $ram -boot d -smp $nucleo -net nic -net user -cdrom $cdrom -soundhw hda -vga std && clear;;
+
+5)clear && echo "Gracias por usar mi script :D" && sleep 1s && clear;
+exit 1;;
+esac
+done
+
