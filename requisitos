@@ -1,3 +1,0 @@
-#!/bin/bash
-sudo apt-get install qemu-kvm qemu virtinst figlet zenity
-sudo adduser $USER kvm

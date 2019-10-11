@@ -4,16 +4,21 @@
 Script para ejecutar maquinas virtuales con Qemu-KVM.
 
 
-Pasos:
-volver ejecutable el archivo "requisitos" y "qmulite":
+Instalacion:
 
-`chmod +x requisitos`
+Haz el script ejecutable con `chmod +x instalar`
 
-`chmod+x qmulite`
+Ejecutalo con `./instalar` (pedira contraseña)
 
-Ejecutar `./requisitos` para instalar las dependencias(sudo)
 
-Y pa podras ejecutar QMULITE con `./qmulite`
+Y pa podras ejecutar QMULITE en tu terminal con `qmulite`
+
+
+Desinstalar:
+
+Haz el script ejecutable con `chmod +x Desinstalar`
+
+Ejecutalo con `./instalar` (pedira contraseña)
 
 ---
 

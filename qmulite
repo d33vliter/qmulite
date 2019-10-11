@@ -1,11 +1,8 @@
 #!/bin/bash
 #hecho por d33vliter
 
-##pedira contraseña para poder instalar las dependencias ademas de agregar su usuario a kvm en caso no lo tenga.
-
-sudo apt-get install qemu-kvm qemu virtinst figlet zenity
-sudo adduser $USER kvm
 #########################################################
+
 while :
 do
 clear
@@ -64,7 +61,7 @@ cdrom=$(zenity --title "Selecciona una iso" --file-selection)
 
 kvm -m $ram -boot d -smp $nucleo -net nic -net user -cdrom $cdrom -soundhw hda -vga std && clear;;
 
-5)clear && echo "Gracias por usar mi script :D" && sleep 1s && clear;
+5)clear && echo "Gracias por usar QMULITE :D" && sleep 1s && clear;
 exit 1;;
 esac
 done

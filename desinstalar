@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Desinstalando...introduzca su contraseña"
+sudo apt purge qemu-kvm qemu virtinst figlet zenity
+sudo gpasswd -d $USER kvm
+sudo rm /usr/local/bin/qmulite
+clear
+echo "Muchas gracias por usar QMULITE :)"
