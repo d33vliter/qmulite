@@ -1,7 +1,7 @@
 
 # QMULITE
 
-Script para ejecutar maquinas virtuales con Qemu-KVM.
+Script para ejecutar maquinas virtuales con QEMU-KVM.
 
 
 ## Instalacion:
