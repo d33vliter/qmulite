@@ -1,7 +1,20 @@
 #!/bin/bash
 echo "Instalando...introduzca su contraseña"
-sudo apt install qemu-kvm qemu figlet zenity
+mkdir libvirglrenderer
+cd libvirglrenderer
+wget http://ftp.us.debian.org/debian/pool/main/v/virglrenderer/libvirglrenderer0_0.7.0-2_amd64.deb
+wgett http://ftp.us.debian.org/debian/pool/main/v/virglrenderer/libvirglrenderer-dev_0.7.0-2_amd64.deb
+sudo apt install ./*
+sudo apt install libglib2.0-dev libpixman-1-dev build-essential libepoxy-dev libdrm-dev libgbm-dev libx11-dev libvirglrenderer-dev libpulse-dev libsdl2-dev
+sudo apt install wget figlet zenity
 sudo apt install --no-install-recommends virtinst 
+wget https://download.qemu.org/qemu-4.1.0.tar.xz
+cd qemu
+tar xvJf qemu-4.1.0.tar.xz
+cd qemu-4.1.0
+./configure --enable-sdl --enable-opengl --enable-virglrenderer --enable-system --enable-modules --audio-drv-list=pa --target-list=x86_64-softmmu --enable-kvm
+make
+sudo make install
 sudo adduser $USER kvm
 chmod +x qmulite
 sudo cp qmulite /usr/local/bin

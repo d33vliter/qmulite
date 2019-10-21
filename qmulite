@@ -38,7 +38,7 @@ duro=$(zenity --title "Selecciona una maquina virtual" --file-selection)
 echo
 echo "Elige iso a instalar: "
 cdrom=$(zenity --title "Selecciona una iso" --file-selection)
-kvm -m $ram -boot d -smp $nucleo -net nic -net user -soundhw hda -vga std -hda $duro -cdrom $cdrom && clear;;
+kvm -m $ram -boot d -smp $nucleo -net nic -net user -soundhw hda -vga virtio  -hda $duro -cdrom $cdrom  && clear;;
 
 3)clear && echo "escribe cantidad de ram que agregaras en mb(ej: 1024): "
 read ram
@@ -48,7 +48,7 @@ read nucleo
 echo
 echo "Elige disco virtual a usar(discoduro): "
 duro=$(zenity --title "Selecciona una Maquina Virtual" --file-selection)
-kvm -m $ram -boot d -smp $nucleo -net nic -net user -soundhw hda -vga std -hda $duro && clear;;
+kvm -m $ram -boot d -smp $nucleo -net nic -net user -soundhw hda -vga virtio -hda $duro && clear;;
 
 4)clear && echo "Escribe cantidad de ram que agregaras en mb(ej: 1024): "
 read ram
@@ -59,7 +59,7 @@ echo
 echo "Elige iso a ejecutar: "
 cdrom=$(zenity --title "Selecciona una iso" --file-selection)
 
-kvm -m $ram -boot d -smp $nucleo -net nic -net user -cdrom $cdrom -soundhw hda -vga std && clear;;
+kvm -m $ram -boot d -smp $nucleo -net nic -net user -cdrom $cdrom -soundhw hda -vga virtio && clear;;
 
 5)clear && echo "Gracias por usar QMULITE :D" && sleep 1s && clear;
 exit 1;;
