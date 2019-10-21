@@ -1,10 +1,11 @@
-#!/bin/bash
+sudo #!/bin/bash
 echo "Instalando...introduzca su contraseña"
 mkdir libvirglrenderer
 cd libvirglrenderer
 wget http://ftp.us.debian.org/debian/pool/main/v/virglrenderer/libvirglrenderer0_0.7.0-2_amd64.deb
 wget http://ftp.us.debian.org/debian/pool/main/v/virglrenderer/libvirglrenderer-dev_0.7.0-2_amd64.deb
 sudo apt install ./*
+cd ..
 sudo apt install libglib2.0-dev libpixman-1-dev build-essential libepoxy-dev libdrm-dev libgbm-dev libx11-dev libvirglrenderer-dev libpulse-dev libsdl2-dev
 sudo apt install wget figlet zenity
 sudo apt install --no-install-recommends virtinst 
@@ -18,4 +19,5 @@ sudo make install
 sudo adduser $USER kvm
 chmod +x qmulite
 sudo cp qmulite /usr/local/bin
+clear
 echo "Listo ya puedes ejecutar QMULITE :D"
